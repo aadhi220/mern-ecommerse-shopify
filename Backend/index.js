@@ -18,5 +18,5 @@ server.listen(port, () => {
 });
 
 server.get('/',(req,res)=>{
-  res.send(`<h1> Server successfully started running on port ${PORT}`)
+  res.send(`<h1> Server successfully started running on port ${port}`)
 })
