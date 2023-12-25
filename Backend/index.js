@@ -8,10 +8,13 @@ server.use(cors());
 server.use(express.json());
 const AuthRouter = require("./Routes/AuthRouter");
 const { errorHandler, notFound } = require("./Middlewares/ErrorHandler");
+const cookieParser = require('cookie-parser')
 
+server.use(cookieParser())
 server.use("/api/user", AuthRouter);
 server.use(notFound);
 server.use(errorHandler);
+
 
 const port = process.env.PORT || 4000;
 
