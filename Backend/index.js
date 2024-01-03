@@ -7,11 +7,14 @@ const server = express();
 server.use(cors());
 server.use(express.json());
 const AuthRouter = require("./Routes/AuthRouter");
+const ProductRouter =require('./Routes/ProductRouter')
 const { errorHandler, notFound } = require("./Middlewares/ErrorHandler");
 const cookieParser = require('cookie-parser')
-
+const morgan = require('morgan')
+server.use(morgan('dev'))
 server.use(cookieParser())
 server.use("/api/user", AuthRouter);
+server.use('/api/products', ProductRouter)
 server.use(notFound);
 server.use(errorHandler);
 
